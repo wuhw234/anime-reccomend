@@ -6,7 +6,6 @@ from database import connect, add, retrieve
 """
 TODO:
 add case for when you run out of anime (optional-ish)
-add sqlite database for storing watched/blocked anime
 """
 
 

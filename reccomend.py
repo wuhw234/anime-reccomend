@@ -13,12 +13,12 @@ def getNext(index, results, conn):
         if not retrieve(conn, results[index]["mal_id"]):
             return index
         index += 1
-    return False
+    return -1
         
 
 def showAnime(response, conn):
     index = getNext(0, response["results"], conn)
-    if not index:
+    if type(index) == -1:
         return True
     file_list_column = [
         [
@@ -63,7 +63,8 @@ def showAnime(response, conn):
             if event == "Already Watched/Block":
                 add(conn, response["results"][index]["mal_id"])
             index = getNext(index + 1, response["results"], conn)
-            if not index:
+            print(index)
+            if index == -1:
                 window.close()
                 return True
             window["title"].update(response["results"][index]["title"])
