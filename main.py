@@ -3,7 +3,6 @@ from genrepopup import getGenre
 from reccomend import showAnime
 
 def getAnime(genre, page):
-    #check if page 1 returns everything on page 1, check page 2
     query_params = {"order_by": "score", "genre": genre,"page": page}
     response = requests.get("https://api.jikan.moe/v3/search/anime", params=query_params).json()
 

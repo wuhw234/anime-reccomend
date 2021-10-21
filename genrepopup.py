@@ -15,36 +15,35 @@ def getGenre():
         "Slice of Life": 36,
         "Supernatural": 37, 
     }
-# For now will only show the name of the file that was chosen
-    buttons = [
-        [sg.Button("Anything"),],
+
+    w_layout = [
         [
-        sg.Button("Fantasy"),
-        sg.Button("Action"),
-        sg.Button("Romance"),
+        sg.Text("Choose the genre:", font="impact 15", justification="center")
         ],
         [
-        sg.Button("Adventure"),
-        sg.Button("Slice of Life"),
-        sg.Button("Comedy")
+        sg.Button("Anything",size=(9, 2)),
+        sg.Button("Action", size=(9, 2)), 
+        sg.Button("Romance", size=(9, 2)),
         ],
         [
-        sg.Button("Drama"),
-        sg.Button("Mystery"),
-        sg.Button("Sci-Fi")
+        sg.Button("Adventure", size=(9, 2)), 
+        sg.Button("Slice of Life", size=(9, 2)), 
+        sg.Button("Comedy", size=(9, 2))
         ],
         [
-        sg.Button("Supernatural"),
-        sg.Button("Sports"),
+        sg.Button("Drama", size=(9, 2)), 
+        sg.Button("Mystery", size=(9, 2)), 
+        sg.Button("Sci-Fi", size=(9, 2))
+        ],
+        [
+        sg.Button("Fantasy", size=(9, 2)), 
+        sg.Button("Supernatural", size=(9, 2)), 
+        sg.Button("Sports", size=(9, 2)),
         ],
     ]
 
-    # ----- Full layout -----
-    w_layout = [buttons]
-
     window = sg.Window(title="Mood", layout=w_layout, margins=(200, 100))
 
-    # Run the Event Loop
     while True:
         event, values = window.read()
         if event == sg.WIN_CLOSED:

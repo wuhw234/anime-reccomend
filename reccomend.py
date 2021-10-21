@@ -6,33 +6,33 @@
 # img = Image.open(BytesIO(response.content))
 
 import PySimpleGUI as sg
-import os.path
 
-# First the window layout in 2 columns
 def showAnime(response):
 
     index = 0
     file_list_column = [
         [
-            sg.Text(response["results"][index]["title"], key = "title")
+            sg.Text(response["results"][index]["title"], 
+            font='Courier 20', justification="center", key = "title" )
         ],
         [
-            sg.Text("Rating: " + str(response["results"][0]["score"]), key = "score"),
-            sg.Text(str(response["results"][index]["episodes"]) + " episodes", key = "episodes")
+            sg.Text("Rating: " + str(response["results"][0]["score"]), 
+            font='Courier 15', key = "score"),
+            sg.Text(str(response["results"][index]["episodes"]) + " episodes", 
+            font='Courier 15', key = "episodes")
         ],
         [
-            sg.Text(response["results"][index]["synopsis"], size=(50, 20), key = "description")
+            sg.Text(response["results"][index]["synopsis"], 
+            size=(80, 20), font='Courier 13', key = "description")
         ],
     ]
 
-    # For now will only show the name of the file that was chosen
     button_column = [
-        [sg.Button("Already Watched/Block")],
-        [sg.Button("Next")],
-        [sg.Button("I'll watch this!")]
+        [sg.Button("Already Watched/Block",size=(11, 3))],
+        [sg.Button("Next", size=(11, 3))],
+        [sg.Button("I'll watch this!", size=(11, 3))]
     ]
 
-    # ----- Full layout -----
     w_layout = [
         [
             sg.Column(file_list_column),
@@ -41,7 +41,7 @@ def showAnime(response):
         ]
     ]
 
-    window = sg.Window(title="Anime Reccomender", layout=w_layout, margins=(100, 30))
+    window = sg.Window(title="Anime Reccomender", layout=w_layout)
 
     # Run the Event Loop
     while True:
