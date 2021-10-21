@@ -6,10 +6,20 @@
 # img = Image.open(BytesIO(response.content))
 
 import PySimpleGUI as sg
+from database import add, retrieve
 
-def showAnime(response):
+def getNext(index, results, conn):
+    while index < len(results[index]):
+        if not retrieve(conn, results[index]["mal_id"]):
+            return index
+        index += 1
+    return False
+        
 
-    index = 0
+def showAnime(response, conn):
+    index = getNext(0, response["results"], conn)
+    if not index:
+        return True
     file_list_column = [
         [
             sg.Text(response["results"][index]["title"], 
@@ -50,8 +60,10 @@ def showAnime(response):
         if event == "I'll watch this!" or event == sg.WIN_CLOSED:
             break
         else:
-            index += 1
-            if index >= len(response["results"]):
+            if event == "Already Watched/Block":
+                add(conn, response["results"][index]["mal_id"])
+            index = getNext(index + 1, response["results"], conn)
+            if not index:
                 window.close()
                 return True
             window["title"].update(response["results"][index]["title"])
