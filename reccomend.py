@@ -9,7 +9,7 @@ import PySimpleGUI as sg
 from database import add, retrieve
 
 def getNext(index, results, conn):
-    while index < len(results[index]):
+    while index < len(results):
         if not retrieve(conn, results[index]["mal_id"]):
             return index
         index += 1

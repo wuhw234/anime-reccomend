@@ -17,7 +17,6 @@ def getAnime(genre, page):
 
 def main():
     conn = connect()
-    print(type(conn))
     genre = getGenre()
     if genre != None:
         page = 1
