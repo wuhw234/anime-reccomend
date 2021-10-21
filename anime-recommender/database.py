@@ -3,7 +3,8 @@ import os
  
 def connect():
     """
-    Connects to a local SQLite database and 
+    Connects to a local SQLite database that
+    stores the users blocked shows and
     creates a table if it doesn't exist.
     return: pointer to the database
     """
