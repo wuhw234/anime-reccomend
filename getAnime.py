@@ -1,7 +1,6 @@
 import requests
 from database import retrieve
 
-
 def getAnime(genre, conn, page):
     while True:
         query_params = {"order_by": "score", "genre": genre,"page": page}
