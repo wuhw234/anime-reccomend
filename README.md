@@ -1,0 +1,1 @@
+Anime recommender that utilizes Jikan and a SQLite database. Run through main.py

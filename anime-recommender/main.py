@@ -3,6 +3,10 @@ from reccomend import showAnime
 from database import connect
 from getAnime import getAnime
     
+"""
+When run, this scripts opens a GUI that recommends
+anime shows based on the selected genre.
+"""
 def main():
     conn = connect()
     while True:

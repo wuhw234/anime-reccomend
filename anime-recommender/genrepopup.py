@@ -1,6 +1,12 @@
 import PySimpleGUI as sg
 
 def getGenre():
+    """
+    Creates GUI that allows users to select the 
+    desired genre
+    return: returns a number representing the genre or
+    None if the user exits
+    """
     genres = {
         "Anything": "",
         "Action": 1,

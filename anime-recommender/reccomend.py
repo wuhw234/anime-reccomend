@@ -1,16 +1,20 @@
-# from PIL import Image
-# import requests
-# from io import BytesIO
-
-# response = requests.get(url)
-# img = Image.open(BytesIO(response.content))
-
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import HorizontalSeparator
-from database import add, retrieve
+from database import add
 from getAnime import getAnime
 
 def showAnime(results, conn, genre, page):
+    """
+    Creates GUI that shows anime with buttons that
+    allow the user to navigate and block.
+    parameters: 
+    results -- array of anime shows parsed from JSON
+    conn -- pointer to database
+    genre -- the selected genre
+    page -- which page of results the data is retrieved from
+    return: True to exit out of GUI, False to go back to genre
+    selection
+    """
     index = 0
     file_list_column = [
         [
