@@ -11,3 +11,4 @@ already watched and they won't be recommended again!
 ## How to run ##
 * Run main.py and select a genre!
 * Block shows you have already watched or don't want to watch, press next or previous to browse through shows.
+* Sometimes getting a response may take a while - keep trying!
